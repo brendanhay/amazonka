@@ -40,7 +40,6 @@ module Network.AWS.Request
   )
 where
 
-import Network.AWS.Data
 import Network.AWS.Lens ((.~))
 import Network.AWS.Prelude
 import Network.AWS.Types

@@ -101,7 +101,7 @@ instance ToByteString Description where
 instance FromText Description where
   fromText = Aeson.eitherDecodeStrict' . Text.encodeUtf8
 
--- | Master key used for encryption and decryption.
+-- | The key used for encryption and decryption.
 data Key
   = Symmetric AES.AES256 Description
   | Asymmetric RSA.KeyPair Description

@@ -78,7 +78,8 @@ instance AWSRequest a => AWSRequest (Encrypted a) where
         | l == Metadata = xs <> toHeaders e
         | otherwise = xs
 
-  response l s p = response l s (proxy p)
+  response l s p =
+    response l s (proxy p)
 
 proxy :: forall a. Proxy (Encrypted a) -> Proxy a
 proxy = const Proxy

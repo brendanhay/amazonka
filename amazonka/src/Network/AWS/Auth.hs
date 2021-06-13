@@ -370,8 +370,8 @@ getAuth m =
             unless p $
               -- not an EC2 instance, rethrow the previous error.
               throwingM _MissingFileError f
-            -- proceed, check EC2 metadata for IAM information.
 
+            -- proceed, check EC2 metadata for IAM information.
             fromProfile m
 
 -- | Retrieve access key, secret key, and a session token from the default
@@ -630,7 +630,7 @@ fromContainer m =
         . mappend "Error parsing Task Identity Document "
         . Text.pack
 
-    getRegion :: MonadIO m => m (Maybe Region)
+    getRegion :: IO (Maybe Region)
     getRegion = runMaybeT $ do
       mr <- MaybeT . liftIO $ Environment.lookupEnv (Text.unpack envRegion)
 

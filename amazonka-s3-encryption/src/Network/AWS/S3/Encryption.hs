@@ -123,8 +123,8 @@ symmetricKey = fmap (`Symmetric` mempty) . createCipher
 -- | Generate a random shared secret that is of the correct length to use with
 -- 'symmetricKey'. This will need to be stored securely to enable decryption
 -- of any requests that are encrypted using this secret.
-newSecret :: MonadIO m => m ByteString
-newSecret = liftIO (getRandomBytes aesKeySize)
+newSecret :: MonadRandom m => m ByteString
+newSecret = getRandomBytes aesKeySize
 
 -- | Encrypt an object, storing the encryption envelope in @x-amz-meta-*@
 -- headers.
@@ -179,8 +179,11 @@ initiate ::
   Env ->
   CreateMultipartUpload ->
   m
-    ( CreateMultipartUploadResponse,
-      UploadPart -> Encrypted UploadPart
+    ( Either
+        EncryptionError
+        ( CreateMultipartUploadResponse,
+          UploadPart -> Encrypted UploadPart
+        )
     )
 initiate key env x = do
   (a, _) <- encrypted key env x
@@ -200,10 +203,13 @@ initiateInstructions ::
   MonadResource m =>
   Key ->
   Env ->
-  CreateMultipartUpload ->
+ CreateMultipartUpload ->
   m
-    ( CreateMultipartUploadResponse,
-      UploadPart -> Encrypted UploadPart
+    ( Either
+        EncryptionError
+        ( CreateMultipartUploadResponse,
+          UploadPart -> Encrypted UploadPart
+        )
     )
 initiateInstructions key env x = do
   (a, b) <- encrypted key env x
@@ -258,7 +264,7 @@ cleanupInstructions ::
 cleanupInstructions env x = do
   rs <- send env x
   _ <- send env (deleteInstructions x)
-  return rs
+ return rs
 
 -- $usage
 -- When sending requests that make use of a master key, an extension to the underlying

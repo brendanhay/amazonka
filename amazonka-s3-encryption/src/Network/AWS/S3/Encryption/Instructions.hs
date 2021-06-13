@@ -19,6 +19,7 @@ import Control.Lens ((%~))
 import qualified Control.Lens as Lens
 import qualified Network.AWS as AWS
 import qualified Data.Aeson.Types as Aeson
+import Data.Bifunctor (first)
 import Data.Coerce (coerce)
 import Network.AWS.Core
 import qualified Network.AWS.Response as Response

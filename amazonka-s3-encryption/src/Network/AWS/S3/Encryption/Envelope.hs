@@ -66,14 +66,23 @@ newV1 f d =
 decodeV1 ::
   MonadResource m =>
   [(CI Text, Text)] ->
-  (ByteString -> IO ByteString) ->
-  m Envelope
-decodeV1 xs f = do
-  k <- xs .& "X-Amz-Key" >>= liftIO . f . unBase64
-  iv <- xs .& "X-Amz-IV" >>= createIV . unBase64
-  d <- xs .& "X-Amz-Matdesc"
-  c <- createCipher k
-  pure . V1 c $ V1Envelope k iv d
+  m (Either EncryptionError Envelope)
+decodeV1 decryptKey meta =
+  liftIO . Except.runExceptT $ do
+    Base64 k <- Except.liftEither (meta .& "X-Amz-Key")
+    Base64 i <- Except.liftEither (meta .& "X-Amz-IV")
+    d <- Except.liftEither (meta .& "X-Amz-Matdesc")
+
+    key <- ExceptT (decryptKey k)
+    iv <- Except.liftEither (createIV i)
+    cipher <- Except.liftEither (createCipher key)
+
+    pure . V1 cipher $
+      V1Envelope
+        { _v1Key = key,
+          _v1IV = iv,
+          _v1Description = d
+        }
 
 data V2Envelope = V2Envelope
   { -- | @x-amz-key-v2@: CEK in key wrapped form. This is necessary so that
@@ -109,17 +118,20 @@ newV2 kid env d = do
         & KMS.generateDataKey_encryptionContext ?~ ctx
         & KMS.generateDataKey_keySpec ?~ KMS.DataKeySpec_AES_256
 
-  c <- createCipher (rs ^. KMS.generateDataKeyResponse_plaintext)
-  iv <- createIV =<< liftIO (getRandomBytes aesBlockSize)
+  ivBytes <- liftIO (getRandomBytes aesBlockSize)
 
-  pure . V2 c $
-    V2Envelope
-      { _v2Key = rs ^. KMS.generateDataKeyResponse_ciphertextBlob,
-        _v2IV = iv,
-        _v2CEKAlgorithm = AES_CBC_PKCS5Padding,
-        _v2WrapAlgorithm = KMSWrap,
-        _v2Description = Description ctx
-      }
+  pure $ do
+    iv <- createIV ivBytes
+    cipher <- createCipher (response ^. KMS.generateDataKeyResponse_plaintext)
+
+    pure . V2 cipher $
+      V2Envelope
+        { _v2Key = response ^. KMS.generateDataKeyResponse_ciphertextBlob,
+          _v2IV = iv,
+          _v2CEKAlgorithm = AES_CBC_PKCS5Padding,
+          _v2WrapAlgorithm = KMSWrap,
+          _v2Description = Description context
+        }
 
 decodeV2 ::
   MonadResource m =>
@@ -196,6 +208,7 @@ decodeEnvelope ::
   MonadResource m =>
   Key ->
   AWS.Env ->
+  Key ->
   [(CI Text, Text)] ->
   m Envelope
 decodeEnvelope key env xs =
@@ -205,9 +218,10 @@ decodeEnvelope key env xs =
     KMS _ d -> decodeV2 env xs d
 
 fromMetadata ::
-   MonadResource m =>
+  MonadResource m =>
   Key ->
   AWS.Env ->
+  Key ->
   HashMap Text Text ->
   m Envelope
 fromMetadata key env =

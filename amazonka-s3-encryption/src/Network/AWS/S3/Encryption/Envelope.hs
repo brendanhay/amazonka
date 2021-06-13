@@ -13,9 +13,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Encryption.Envelope where
 
-import qualified Control.Exception as Exception
 import qualified Conduit
-import Control.Lens ( (+~), (?~), (^.))
+import qualified Control.Exception as Exception
+import Control.Lens ((+~), (?~), (^.))
 import qualified Crypto.Cipher.AES as AES
 import Crypto.Cipher.Types (BlockCipher, Cipher)
 import qualified Crypto.Cipher.Types as Cipher
@@ -30,9 +30,9 @@ import qualified Data.ByteArray as ByteArray
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashMap.Strict as Map
 import qualified Network.AWS as AWS
+import Network.AWS.Core
 import qualified Network.AWS.KMS as KMS
 import qualified Network.AWS.KMS.Lens as KMS
-import Network.AWS.Core
 import Network.AWS.S3.Encryption.Body
 import Network.AWS.S3.Encryption.Types
 
@@ -50,18 +50,18 @@ data V1Envelope = V1Envelope
 
 newV1 :: MonadIO m => (ByteString -> IO ByteString) -> Description -> m Envelope
 newV1 f d =
- liftIO $ do
-  k <- getRandomBytes aesKeySize
-  c <- createCipher k
-  ek <- f k
-  iv <- createIV =<< getRandomBytes aesBlockSize
-  
-  pure . V1 c $
-    V1Envelope
-      { _v1Key = ek,
-        _v1IV = iv,
-        _v1Description = d
-      }
+  liftIO $ do
+    k <- getRandomBytes aesKeySize
+    c <- createCipher k
+    ek <- f k
+    iv <- createIV =<< getRandomBytes aesBlockSize
+
+    pure . V1 c $
+      V1Envelope
+        { _v1Key = ek,
+          _v1IV = iv,
+          _v1Description = d
+        }
 
 decodeV1 ::
   MonadResource m =>
@@ -111,7 +111,7 @@ data V2Envelope = V2Envelope
 newV2 :: MonadResource m => Text -> AWS.Env -> Description -> m Envelope
 newV2 kid env d = do
   let ctx = Map.insert "kms_cmk_id" kid (fromDescription d)
-  
+
   rs <-
     AWS.send env $
       KMS.newGenerateDataKey kid
@@ -226,8 +226,8 @@ fromMetadata ::
   m Envelope
 fromMetadata key env =
   decodeEnvelope key env
-  . map (first CI.mk)
-  . Map.toList
+    . map (first CI.mk)
+    . Map.toList
 
 aesKeySize, aesBlockSize :: Int
 aesKeySize = 32

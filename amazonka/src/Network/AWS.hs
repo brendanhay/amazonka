@@ -149,6 +149,7 @@ import qualified Network.AWS.HTTP as HTTP
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Logger
 import qualified Network.AWS.Pager as Pager
+import Network.AWS.Prelude
 import qualified Network.AWS.Presign as Presign
 import Network.AWS.Request (clientRequestURL)
 import qualified Network.AWS.Waiter as Waiter

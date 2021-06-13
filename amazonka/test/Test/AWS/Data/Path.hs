@@ -8,6 +8,7 @@
 module Test.AWS.Data.Path (tests) where
 
 import Network.AWS.Core
+import Network.AWS.Prelude
 import Test.Tasty
 import Test.Tasty.HUnit
 

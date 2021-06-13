@@ -89,9 +89,9 @@ where
 
 import Control.Lens
 import Control.Monad.Reader
-import Network.AWS as AWS
 import Crypto.PubKey.RSA.Types as RSA
 import Crypto.Random
+import Network.AWS as AWS
 import Network.AWS.S3
 import Network.AWS.S3.Encryption.Decrypt
 import Network.AWS.S3.Encryption.Encrypt
@@ -203,7 +203,7 @@ initiateInstructions ::
   MonadResource m =>
   Key ->
   Env ->
- CreateMultipartUpload ->
+  CreateMultipartUpload ->
   m
     ( Either
         EncryptionError
@@ -261,10 +261,12 @@ cleanupInstructions ::
   Env ->
   a ->
   m (AWSResponse a)
-cleanupInstructions env x = do
-  rs <- send env x
-  _ <- send env (deleteInstructions x)
- return rs
+cleanupInstructions env x =
+  do
+    rs <- send env x
+    _ <- send env (deleteInstructions x)
+  return
+  rs
 
 -- $usage
 -- When sending requests that make use of a master key, an extension to the underlying

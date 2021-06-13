@@ -14,8 +14,9 @@ import Data.CaseInsensitive (FoldCase)
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
-import Data.Time (UTCTime (..), Day (..))
+import Data.Time (Day (..), UTCTime (..))
 import Network.AWS.Core
+import Network.AWS.Prelude
 import Network.AWS.Sign.V4
 import Network.HTTP.Types (StdMethod (..))
 import Test.QuickCheck.Gen as QC

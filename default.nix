@@ -29,12 +29,7 @@ in project // {
     exactDeps = true;
     withHoogle = false;
 
-    packages = ps:
-      with ps; [
-        amazonka
-        amazonka-test
-        amazonka-gen
-      ];
+    packages = ps: with ps; [ amazonka amazonka-test amazonka-gen ];
 
     tools = {
       cabal = "3.2.0.0";

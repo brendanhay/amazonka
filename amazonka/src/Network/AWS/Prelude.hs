@@ -22,8 +22,6 @@ module Network.AWS.Prelude
     TextBuilder,
     ByteStringLazy,
     ByteStringBuilder,
-    (.!@),
-    may,
   )
 where
 
@@ -39,10 +37,8 @@ import Control.Lens as Export
   )
 import Control.Monad as Export
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
-import Data.Monoid as Export (First)
 import Control.Monad.Trans as Export (MonadTrans (lift))
 import Control.Monad.Trans.Resource as Export (MonadResource)
-import Data.Aeson as Export (FromJSON (..), FromJSONKey (..), ToJSON (..), ToJSONKey (..))
 import Data.Bifoldable as Export
 import Data.Bifunctor as Export
 import Data.Bitraversable as Export
@@ -62,6 +58,7 @@ import Data.Int as Export (Int16, Int32, Int64, Int8)
 import Data.Kind as Export (Type)
 import Data.List.NonEmpty as Export (NonEmpty ((:|)))
 import Data.Maybe as Export
+import Data.Monoid as Export (First)
 import Data.Proxy as Export (Proxy (Proxy))
 import Data.Scientific as Export (Scientific)
 import Data.String as Export (IsString (fromString))
@@ -84,14 +81,3 @@ type TextBuilder = Text.Lazy.Builder.Builder
 type ByteStringLazy = ByteString.Lazy.ByteString
 
 type ByteStringBuilder = ByteString.Builder.Builder
-
--- Legacy code generation operators
-
-infixl 7 .!@
-
-(.!@) :: Functor f => f (Maybe a) -> a -> f a
-f .!@ x = fromMaybe x <$> f
-
-may :: Applicative f => ([a] -> f b) -> [a] -> f (Maybe b)
-may _ [] = pure Nothing
-may f xs = Just <$> f xs

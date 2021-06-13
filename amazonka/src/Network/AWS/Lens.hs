@@ -50,7 +50,6 @@ import Control.Lens as Export
     view,
     (#),
     (%~),
-    (&),
     (.~),
     (<&>),
     (<>~),

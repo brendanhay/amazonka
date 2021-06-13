@@ -86,11 +86,10 @@ library
     Network.AWS.Core
     Network.AWS.EC2.Metadata
     Network.AWS.Env
-    Network.AWS.Error
     Network.AWS.HTTP
     Network.AWS.Lens
     Network.AWS.Logger
-    Network.AWS.Pager
+    Network.AWS.Prelude
     Network.AWS.Presign
     Network.AWS.Request
     Network.AWS.Response
@@ -100,7 +99,6 @@ library
     Network.AWS.Sign.V4
     Network.AWS.Sign.V4.Base
     Network.AWS.Sign.V4.Chunked
-    Network.AWS.Waiter
 
   other-modules:
     Network.AWS.Bytes
@@ -119,8 +117,10 @@ library
     Network.AWS.Data.Time
     Network.AWS.Data.XML
     Network.AWS.Endpoint
-    Network.AWS.Prelude
+    Network.AWS.Error
+    Network.AWS.Pager
     Network.AWS.Types
+    Network.AWS.Waiter
 
   build-depends:
     , aeson                 >=1.3.1   && <1.6.2

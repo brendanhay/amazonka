@@ -106,9 +106,10 @@ instance FromJSON Derive where
   parseJSON = gParseJSON' (camel & ctor %~ (. Text.drop 1))
 
 derivingName :: Derive -> Maybe String
-derivingName DHashable = Nothing
-derivingName DNFData = Nothing
-derivingName d = Just $ drop 1 (show d)
+derivingName = \case
+  DHashable -> Nothing
+  DNFData -> Nothing
+  other -> Just (drop 1 (show other))
 
 data Lit
   = Int

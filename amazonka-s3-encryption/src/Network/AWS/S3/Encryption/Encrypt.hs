@@ -16,8 +16,8 @@ module Network.AWS.S3.Encryption.Encrypt where
 
 import Control.Lens ((%~), (<>~), (^.))
 import qualified Control.Lens as Lens
-import qualified Network.AWS as AWS
 import Data.Coerce (coerce)
+import qualified Network.AWS as AWS
 import Network.AWS.Core
 import qualified Network.AWS.S3 as S3
 import Network.AWS.S3.Encryption.Envelope
@@ -30,7 +30,7 @@ import qualified Network.AWS.S3.Lens as S3
 -- | Note about how it doesn't attach metadata by default.
 -- You can re-set the location and then discard the PutInstructions request.
 encrypted ::
-  ( MonadResource m, ToEncrypted a) =>
+  (MonadResource m, ToEncrypted a) =>
   Key ->
   AWS.Env ->
   a ->

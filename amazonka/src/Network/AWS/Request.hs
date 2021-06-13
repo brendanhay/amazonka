@@ -40,9 +40,9 @@ module Network.AWS.Request
   )
 where
 
+import Network.AWS.Core
 import Network.AWS.Lens ((.~))
 import Network.AWS.Prelude
-import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types (StdMethod (..))
 import qualified Network.HTTP.Types as HTTP

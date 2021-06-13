@@ -12,6 +12,7 @@ import qualified Data.ByteString.Lazy as LBS
 import Language.Haskell.TH
 import Language.Haskell.TH.Quote
 import Network.AWS.Core
+import Network.AWS.Prelude
 import Test.Tasty
 import Test.Tasty.HUnit
 

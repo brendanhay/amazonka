@@ -8,6 +8,7 @@
 module Test.AWS.Data.Numeric (tests) where
 
 import Network.AWS.Core
+import Network.AWS.Prelude
 import Test.AWS.Util
 import Test.Tasty
 

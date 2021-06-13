@@ -17,10 +17,10 @@ module Network.AWS.S3.Encryption.Instructions where
 import Control.Arrow ((&&&))
 import Control.Lens ((%~))
 import qualified Control.Lens as Lens
-import qualified Network.AWS as AWS
 import qualified Data.Aeson.Types as Aeson
 import Data.Bifunctor (first)
 import Data.Coerce (coerce)
+import qualified Network.AWS as AWS
 import Network.AWS.Core
 import qualified Network.AWS.Response as Response
 import qualified Network.AWS.S3 as S3

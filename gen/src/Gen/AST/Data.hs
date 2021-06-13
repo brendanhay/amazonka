@@ -236,7 +236,7 @@ prodData m s st = (,fields) <$> mk
             Exts.IRule () Nothing Nothing
               . Exts.IHCon ()
               . unqual
-              . mappend "Core."
+              . mappend "Prelude."
               . Text.pack
 
     fields :: [Field]

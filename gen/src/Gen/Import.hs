@@ -22,6 +22,7 @@ operationImports l _o =
     "qualified Network.AWS.Response as Response" :
     "qualified Network.AWS.Lens as Lens" :
     "qualified Network.AWS.Core as Core" :
+    "qualified Network.AWS.Prelude as Prelude" :
     l ^. typesNS :
     l ^. operationModules
 
@@ -30,6 +31,7 @@ typeImports l =
   sort $
     "qualified Network.AWS.Lens as Lens" :
     "qualified Network.AWS.Core as Core" :
+    "qualified Network.AWS.Prelude as Prelude" :
     signatureImport (l ^. signatureVersion) :
     l ^. typeModules
 
@@ -41,6 +43,7 @@ sumImports :: Library -> [NS]
 sumImports l =
   sort $
     "qualified Network.AWS.Core as Core" :
+    "qualified Network.AWS.Prelude as Prelude" :
     l ^. typeModules
 
 productImports :: Library -> Prod -> [NS]
@@ -48,6 +51,7 @@ productImports l p =
   sort $
     "qualified Network.AWS.Lens as Lens" :
     "qualified Network.AWS.Core as Core" :
+    "qualified Network.AWS.Prelude as Prelude" :
     l ^. typeModules
       ++ productDependencies l p
 
@@ -68,6 +72,7 @@ waiterImports l =
   sort $
     "qualified Network.AWS.Lens as Lens" :
     "qualified Network.AWS.Core as Core" :
+    "qualified Network.AWS.Prelude as Prelude" :
     l ^. typesNS :
     l ^. lensNS :
     map (operationNS ns . _waitOpName) (l ^.. waiters . each)

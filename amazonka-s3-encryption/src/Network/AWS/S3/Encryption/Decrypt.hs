@@ -13,10 +13,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Encryption.Decrypt where
 
-import qualified Control.Monad.Except as Except
 import Control.Lens ((%~), (^.))
-import qualified Network.AWS as AWS
+import qualified Control.Monad.Except as Except
 import Data.Coerce (coerce)
+import qualified Network.AWS as AWS
 import Network.AWS.Core
 import qualified Network.AWS.S3 as S3
 import Network.AWS.S3.Encryption.Envelope
@@ -40,20 +40,20 @@ instance AWSRequest (Decrypt S3.GetObject) where
   request (Decrypt x) = coerce (request x)
 
   response l s p r =
-   Except.runExceptT $ do
-    rs <- Except.ExceptT (response l s (proxy p) r)
+    Except.runExceptT $ do
+      rs <- Except.ExceptT (response l s (proxy p) r)
 
-    let body = Client.responseBody rs
-        decrypt =
+      let body = Client.responseBody rs
+          decrypt =
             Decrypted $ \key env m -> do
-                encrypted <-
-                  case m of
-                    Nothing -> fromMetadata key env (body ^. S3.getObjectResponse_metadata)
-                    Just e -> pure e
+              encrypted <-
+                case m of
+                  Nothing -> fromMetadata key env (body ^. S3.getObjectResponse_metadata)
+                  Just e -> pure e
 
-                pure (body & S3.getObjectResponse_body %~ bodyDecrypt encrypted) 
-      
-    pure (decrypt <$ rs) 
-      
+              pure (body & S3.getObjectResponse_body %~ bodyDecrypt encrypted)
+
+      pure (decrypt <$ rs)
+
 proxy :: forall a. Proxy (Decrypt a) -> Proxy a
 proxy = const Proxy

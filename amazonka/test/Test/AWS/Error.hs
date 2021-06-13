@@ -8,6 +8,7 @@
 module Test.AWS.Error (tests) where
 
 import Network.AWS.Core
+import Network.AWS.Prelude
 import Test.AWS.Arbitrary ()
 import Test.QuickCheck.Property ()
 import Test.Tasty

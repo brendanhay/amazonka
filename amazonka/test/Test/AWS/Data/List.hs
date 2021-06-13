@@ -7,7 +7,10 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.List (tests) where
 
-import Network.AWS.Core hiding (Item)
+import Network.AWS.Core
+import Network.AWS.Prelude hiding
+  ( Item,
+  )
 import Test.AWS.Util
 import Test.Tasty
 

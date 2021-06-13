@@ -3,7 +3,7 @@
     "typeOverrides": {
         "BodyBlob": {
             "replacedBy": {
-                "name": "Core.Text",
+                "name": "Prelude.Text",
                 "underive": ["show", "read", "eq"]
             }
         }

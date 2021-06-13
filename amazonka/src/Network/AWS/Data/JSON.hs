@@ -7,8 +7,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.JSON
   ( -- * FromJSON
-    FromJSON (..),
-    FromJSONKey (..),
+    Aeson.FromJSON (..),
+    Aeson.FromJSONKey (..),
     parseJSONText,
     Aeson.eitherDecode,
     Aeson.eitherDecode',
@@ -25,8 +25,8 @@ module Network.AWS.Data.JSON
     (.?>),
 
     -- * ToJSON
-    ToJSON (..),
-    ToJSONKey (..),
+    Aeson.ToJSON (..),
+    Aeson.ToJSONKey (..),
     toJSONText,
     Aeson.Value (Object),
     Aeson.object,
@@ -46,16 +46,16 @@ parseJSONText n = Aeson.withText n (either fail pure . fromText)
 toJSONText :: ToText a => a -> Aeson.Value
 toJSONText = Aeson.String . toText
 
-eitherParseJSON :: FromJSON a => Aeson.Object -> Either String a
+eitherParseJSON :: Aeson.FromJSON a => Aeson.Object -> Either String a
 eitherParseJSON = Aeson.Types.parseEither Aeson.parseJSON . Aeson.Object
 
-(.:>) :: FromJSON a => Aeson.Object -> Text -> Either String a
+(.:>) :: Aeson.FromJSON a => Aeson.Object -> Text -> Either String a
 (.:>) o k =
   case HashMap.lookup k o of
     Nothing -> Left $ "key " ++ show k ++ " not present"
     Just v -> Aeson.Types.parseEither Aeson.parseJSON v
 
-(.?>) :: FromJSON a => Aeson.Object -> Text -> Either String (Maybe a)
+(.?>) :: Aeson.FromJSON a => Aeson.Object -> Text -> Either String (Maybe a)
 (.?>) o k =
   case HashMap.lookup k o of
     Nothing -> Right Nothing
